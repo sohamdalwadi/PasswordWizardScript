@@ -4,7 +4,13 @@ import getpass
 import hashlib
 import random
 import argparse
-from cryptography.fernet import Fernet
+
+try:
+    from cryptography.fernet import Fernet
+except ImportError:
+    print("The 'cryptography' library is not installed. Please install it using:")
+    print("pip install cryptography")
+    exit(1)
 
 # Define the path to the password storage file
 PASSWORD_FILE = "passwords.json"
